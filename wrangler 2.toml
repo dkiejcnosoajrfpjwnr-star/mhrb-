@@ -1,0 +1,19 @@
+# Cloudflare Wrangler configuration for the Telegram Group Guard Worker.
+# Place this file beside worker-cloudflare.js when deploying.
+
+name = "telegram-group-guard-bot"
+main = "worker-cloudflare.js"
+compatibility_date = "2026-08-28"
+workers_dev = true
+
+# The bot token must be added as a Cloudflare secret:
+# npx wrangler secret put BOT_TOKEN
+[vars]
+DEV_ID = "REPLACE_WITH_DEVELOPER_ID"
+
+[[kv_namespaces]]
+binding = "BOT_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Optional: use a separate KV namespace for wrangler dev/preview.
+# preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
