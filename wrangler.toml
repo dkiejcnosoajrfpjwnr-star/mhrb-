@@ -9,11 +9,12 @@ workers_dev = true
 # The bot token must be added as a Cloudflare secret:
 # npx wrangler secret put BOT_TOKEN
 [vars]
-DEV_ID = "REPLACE_WITH_DEVELOPER_ID"
+DEV_ID = "6668195885"
 
 [[kv_namespaces]]
 binding = "BOT_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "075bbfad03994edda087fcef3ca87f20
+"
 
 # Optional: use a separate KV namespace for wrangler dev/preview.
 # preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
