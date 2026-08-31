@@ -436,9 +436,9 @@ function kbCommandsMenu() {
 function kbGroupMenu() {
   return {
     inline_keyboard: [
-      [{ text: "🔒 القفل والفتح", callback_data: "menu_group_lock" }],
-      [{ text: "⚙️ التفعيل والتعطيل", callback_data: "menu_group_toggle" }],
-      [{ text: "⬆️ الترقية", callback_data: "menu_roles" }],
+      [{ text: "⤶ القفل والفتح", callback_data: "menu_group_lock" }],
+      [{ text: "⤶ التفعيل والتعطيل", callback_data: "menu_group_toggle" }],
+      [{ text: "⤶ الترقية", callback_data: "menu_roles" }],
       [{ text: "🔙 رجوع", callback_data: "menu_back" }],
     ],
   };
@@ -453,27 +453,27 @@ function kbBackTo(callback_data) {
 }
 
 function kbDeleteAllMuted() {
-  return { inline_keyboard: [[{ text: "🗑 حذف كل المكتومين", callback_data: "unmute_all" }]] };
+  return { inline_keyboard: [[{ text: "- حذف كل المكتومين", callback_data: "unmute_all" }]] };
 }
 
 function kbDeleteAllRestricted() {
-  return { inline_keyboard: [[{ text: "🗑 حذف كل المقيديين", callback_data: "unrestrict_all" }]] };
+  return { inline_keyboard: [[{ text: "- حذف كل المقيديين", callback_data: "unrestrict_all" }]] };
 }
 
 function kbDeleteAllBanned() {
-  return { inline_keyboard: [[{ text: "🗑 حذف كل المحظورين", callback_data: "unban_all" }]] };
+  return { inline_keyboard: [[{ text: "- حذف كل المحظورين", callback_data: "unban_all" }]] };
 }
 
 function kbDeleteAllManagers() {
-  return { inline_keyboard: [[{ text: "🗑 مسح المدراء", callback_data: "managers_clear" }]] };
+  return { inline_keyboard: [[{ text: "- مسح المدراء", callback_data: "managers_clear" }]] };
 }
 
 function kbDeleteAllAdmins() {
-  return { inline_keyboard: [[{ text: "🗑 مسح الادمنية", callback_data: "admins_clear" }]] };
+  return { inline_keyboard: [[{ text: "- مسح الادمنية", callback_data: "admins_clear" }]] };
 }
 
 function kbDeleteAllSpecials() {
-  return { inline_keyboard: [[{ text: "🗑 مسح المميزين", callback_data: "specials_clear" }]] };
+  return { inline_keyboard: [[{ text: "- مسح المميزين", callback_data: "specials_clear" }]] };
 }
 
 // تظهر بعد تجاوز العضو لعدد الإنذارات — شبكة 2×2 (نافذة جانب نافذة)، بدون إيموجيات
@@ -496,10 +496,10 @@ function kbWarnActions(targetId) {
 function kbRoleListCallback(role) {
   const clearBtn =
     role === "manager"
-      ? { text: "🗑 مسح المدراء", callback_data: "managers_clear" }
+      ? { text: "- مسح المدراء", callback_data: "managers_clear" }
       : role === "admin"
-        ? { text: "🗑 مسح الادمنية", callback_data: "admins_clear" }
-        : { text: "🗑 مسح المميزين", callback_data: "specials_clear" };
+        ? { text: "- مسح الادمنية", callback_data: "admins_clear" }
+        : { text: "- مسح المميزين", callback_data: "specials_clear" };
   return {
     inline_keyboard: [[clearBtn], [{ text: "🔙 رجوع", callback_data: "menu_roles" }]],
   };
@@ -509,10 +509,10 @@ function kbRoleLists() {
   return {
     inline_keyboard: [
       [
-        { text: "👥 المدراء", callback_data: "role_list:manager" },
-        { text: "🛡 الادمنية", callback_data: "role_list:admin" },
+        { text: "• المدراء", callback_data: "role_list:manager" },
+        { text: "• الادمنية", callback_data: "role_list:admin" },
       ],
-      [{ text: "🌟 المميزين", callback_data: "role_list:special" }],
+      [{ text: "• المميزين", callback_data: "role_list:special" }],
       [{ text: "🔙 رجوع", callback_data: "menu_group" }],
     ],
   };
@@ -544,8 +544,8 @@ function kbGroupPicker(list, action) {
 function kbReplyEntry(id) {
   return {
     inline_keyboard: [
-      [{ text: "✏️ تعديل", callback_data: `rep_editmenu:${id}` }],
-      [{ text: "🗑 حذف", callback_data: `rep_del:${id}` }],
+      [{ text: "- تعديل", callback_data: `rep_editmenu:${id}` }],
+      [{ text: "- حذف", callback_data: `rep_del:${id}` }],
     ],
   };
 }
@@ -553,15 +553,15 @@ function kbReplyEntry(id) {
 function kbReplyEditChoice(id) {
   return {
     inline_keyboard: [
-      [{ text: "✏️ تعديل نص الرد", callback_data: `rep_edittrigger:${id}` }],
-      [{ text: "✏️ تعديل رد النص", callback_data: `rep_editcontent:${id}` }],
+      [{ text: "- تعديل نص الرد", callback_data: `rep_edittrigger:${id}` }],
+      [{ text: "- تعديل رد النص", callback_data: `rep_editcontent:${id}` }],
     ],
   };
 }
 
 function kbMemberProfile(member) {
   const label = member.first_name || member.username || "العضو الجديد";
-  return { inline_keyboard: [[{ text: `👤 ${label}`, url: `tg://user?id=${member.id}` }]] };
+  return { inline_keyboard: [[{ text: `• ${label}`, url: `tg://user?id=${member.id}` }]] };
 }
 
 // ==================== أدوات تليجرام مساعدة ====================
@@ -989,8 +989,8 @@ const FULL_PERMS = {
 function punishResultText(icon, label, target, actorMentionStr) {
   return (
     `${icon} ${label}\n` +
-    `👤 المستهدف: ${mentionHtml(target)}\n` +
-    `👮‍♂️ بواسطة: ${actorMentionStr}`
+    `- المستخدم: ${mentionHtml(target)}\n` +
+    `- بواسطة: ${actorMentionStr}`
   );
 }
 
@@ -1637,7 +1637,7 @@ async function handleListCommand(env, group, chatId, msg, text) {
       return true;
     }
     const lines = group.muted.map((u, i) => `${i + 1}- ${linkedUserHtml(u)}`).join("\n");
-    await sendMessage(env, chatId, `🔇 قائمة المكتومين:\n${lines}`, {
+    await sendMessage(env, chatId, `- قائمة المكتومين:\n${lines}`, {
       reply_markup: kbDeleteAllMuted(),
       ...replyOpts,
     });
@@ -1649,7 +1649,7 @@ async function handleListCommand(env, group, chatId, msg, text) {
       return true;
     }
     const lines = group.restricted.map((u, i) => `${i + 1}- ${linkedUserHtml(u)}`).join("\n");
-    await sendMessage(env, chatId, `🚧 قائمة المقيدين:\n${lines}`, {
+    await sendMessage(env, chatId, `- قائمة المقيدين:\n${lines}`, {
       reply_markup: kbDeleteAllRestricted(),
       ...replyOpts,
     });
@@ -1661,7 +1661,7 @@ async function handleListCommand(env, group, chatId, msg, text) {
       return true;
     }
     const lines = group.banned.map((u, i) => `${i + 1}- ${linkedUserHtml(u)}`).join("\n");
-    await sendMessage(env, chatId, `⛔ قائمة المحظورين:\n${lines}`, {
+    await sendMessage(env, chatId, `- قائمة المحظورين:\n${lines}`, {
       reply_markup: kbDeleteAllBanned(),
       ...replyOpts,
     });
@@ -1676,7 +1676,7 @@ async function handleUnmuteAll(env, group, chatId) {
   }
   group.muted = [];
   await saveGroup(env, group);
-  await sendMessage(env, chatId, "✅ تم إلغاء كتم جميع الأعضاء.");
+  await sendMessage(env, chatId, "- تم إلغاء كتم جميع الأعضاء.");
 }
 
 async function handleUnrestrictAll(env, group, chatId) {
@@ -1685,7 +1685,7 @@ async function handleUnrestrictAll(env, group, chatId) {
   }
   group.restricted = [];
   await saveGroup(env, group);
-  await sendMessage(env, chatId, "✅ تم إلغاء تقييد جميع الأعضاء.");
+  await sendMessage(env, chatId, "- تم إلغاء تقييد جميع الأعضاء.");
 }
 
 async function handleUnbanAll(env, group, chatId) {
@@ -1694,7 +1694,7 @@ async function handleUnbanAll(env, group, chatId) {
   }
   group.banned = [];
   await saveGroup(env, group);
-  await sendMessage(env, chatId, "✅ تم إلغاء حظر جميع الأعضاء.");
+  await sendMessage(env, chatId, "- تم إلغاء حظر جميع الأعضاء.");
 }
 
 // ==================== أوامر المسح السريعة (بدون الحاجة للضغط على الأزرار) ====================
