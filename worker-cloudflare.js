@@ -1399,7 +1399,7 @@ async function handlePunishCommand(env, group, chatId, msg, cmdRaw, actorRole, t
     case "طرد": {
       await tg(env, "banChatMember", { chat_id: chatId, user_id: target.id });
       await tg(env, "unbanChatMember", { chat_id: chatId, user_id: target.id, only_if_banned: true });
-      await sendMessage(env, chatId, punishResultText("👢", "تم طرد العضو", target, actorMentionStr), replyOpts);
+      await sendMessage(env, chatId, punishResultText("⛔", "تم طرد العضو", target, actorMentionStr), replyOpts);
       return true;
     }
     // التقييد يستخدم قفلاً كاملاً فعلياً من تيليجرام: لوحة الكتابة تختفي تماماً عند العضو
